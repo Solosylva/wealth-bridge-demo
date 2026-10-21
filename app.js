@@ -10,3 +10,19 @@ if(mode==='register'){const confirm=document.getElementById('confirmPassword').v
 else{if(!users[phone]||users[phone].password!==password){error.textContent='Demo account not found or password is incorrect. Create a demo account first.';return}localStorage.setItem('wb_demo_current',phone);modal.hidden=true;location.href='dashboard.html'}});
 document.getElementById('learnMore').addEventListener('click',()=>document.getElementById('features').scrollIntoView({behavior:'smooth'}));
 document.getElementById('tryReferrals').addEventListener('click',()=>openModal('register'));
+
+
+// Plan cards are informational demo content only; no transaction is initiated.
+document.querySelectorAll('.plan-demo-btn').forEach((button) => {
+  button.addEventListener('click', () => {
+    const plan = button.dataset.plan;
+    const toast = document.getElementById('toast');
+    if (toast) {
+      toast.textContent = `Plan ${plan} is for demonstration only. No deposits or payouts are available.`;
+      toast.classList.add('show');
+      window.setTimeout(() => toast.classList.remove('show'), 3500);
+    } else {
+      window.alert(`Plan ${plan} is for demonstration only. No deposits or payouts are available.`);
+    }
+  });
+});

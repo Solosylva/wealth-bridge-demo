@@ -40,3 +40,7 @@ Before accepting funds or offering investment products, replace this demo with a
 
 ## Next production phase
 A production version would need a backend (for example Node.js), a database (for example PostgreSQL), secure password hashing, server-side sessions, verified bank-transfer reconciliation, a transaction ledger, and audited admin approval workflows. Keep the demo clearly labelled until that work is complete.
+
+
+## Proposed funding plans (demo only)
+The homepage includes eight illustrative EverHarvest Investment plan cards. All amounts and referral bonuses are unverified proposed figures for visual demonstration only. They are not a live investment offer and the site does not accept money or process returns, commissions, or withdrawals. Before any real offering, obtain appropriate legal and regulatory advice and assess financial feasibility.
