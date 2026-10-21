@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#080b0d">
+  <title>Wealth Bridge | Invest • Grow • Together</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#" aria-label="Wealth Bridge home"><span class="brand-mark">WB</span><span><b>WEALTH BRIDGE</b><small>INVEST · GROW · TOGETHER</small></span></a>
+    <nav><a href="#about">About</a><a href="#features">Features</a><a href="#how">How it works</a></nav>
+    <div class="top-actions"><button class="btn btn-ghost" id="showLogin">Log in</button><button class="btn btn-gold" id="showRegister">Register</button></div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">YOUR NEXT CHAPTER STARTS HERE</p>
+        <h1>Build your future.<br><em>One step at a time.</em></h1>
+        <p class="hero-text">A modern dashboard concept for tracking goals, activity and referrals. Explore Wealth Bridge in demo mode before connecting any real financial services.</p>
+        <div class="hero-actions"><button class="btn btn-gold btn-large" id="heroRegister">Create demo account <span>↗</span></button><button class="btn btn-ghost btn-large" id="heroLogin">Explore dashboard</button></div>
+        <div class="trust-row"><span>◈ Demo environment</span><span>◇ Mobile friendly</span><span>↗ Referral tracking preview</span></div>
+      </div>
+      <div class="hero-art" aria-label="Decorative wealth growth illustration">
+        <div class="orbit orbit-one"></div><div class="orbit orbit-two"></div>
+        <div class="coin coin-a">₦</div><div class="coin coin-b">₦</div><div class="coin coin-c">₦</div>
+        <div class="growth-card"><div class="growth-icon">↗</div><div class="growth-lines"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div><p>PLAN WITH PURPOSE</p></div>
+        <div class="gold-glow"></div>
+      </div>
+    </section>
+
+    <section class="stats" id="features">
+      <div><span class="stat-icon">◈</span><strong>One clear view</strong><small>See demo account activity in one place.</small></div>
+      <div><span class="stat-icon">↗</span><strong>Goal-focused</strong><small>Organize plans and review activity.</small></div>
+      <div><span class="stat-icon">♧</span><strong>Referral tools</strong><small>Preview how referral links can work.</small></div>
+      <div><span class="stat-icon">⌁</span><strong>Designed for mobile</strong><small>Use the demo on phone or desktop.</small></div>
+    </section>
+
+    <section class="section-intro" id="about"><p class="eyebrow">WELCOME TO WEALTH BRIDGE</p><h2>Clarity for every step<br>of your financial journey.</h2><p>This starter website is a visual and functional prototype. It does not accept deposits or provide real investment services.</p></section>
+
+    <section class="preview-grid" id="how">
+      <div class="preview-card balance-card"><div class="card-top"><span>DEMO ACCOUNT OVERVIEW</span><span class="status-pill">SAMPLE DATA</span></div><p class="muted">Total demo balance</p><h3>₦125,000.00</h3><div class="mini-chart"><span style="height:25%"></span><span style="height:40%"></span><span style="height:32%"></span><span style="height:55%"></span><span style="height:46%"></span><span style="height:70%"></span><span style="height:60%"></span><span style="height:88%"></span></div><small class="muted">Illustrative figures only — not actual funds or returns.</small></div>
+      <div class="preview-card"><span class="stat-icon">◇</span><h3>Simple account activity</h3><p>Keep deposits, withdrawals and other activity organized in a single dashboard view. In this demo, transactions are simulated.</p><button class="text-btn" id="learnMore">See demo features ↗</button></div>
+      <div class="preview-card"><span class="stat-icon">♧</span><h3>Invite and track</h3><p>Explore a sample referral link and see how referral counts might appear in an account dashboard.</p><button class="text-btn" id="tryReferrals">Try the referral demo ↗</button></div>
+    </section>
+  </main>
+
+  <footer><a class="brand brand-small" href="#"><span class="brand-mark">WB</span><span><b>WEALTH BRIDGE</b><small>INVEST · GROW · TOGETHER</small></span></a><p>Prototype only. No real deposits, investments, earnings or withdrawals.</p><span>© <span id="year"></span> Wealth Bridge</span></footer>
+
+  <div class="modal-backdrop" id="authModal" hidden>
+    <section class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <button class="close" id="closeModal" aria-label="Close">×</button>
+      <a class="brand modal-brand" href="#"><span class="brand-mark">WB</span><span><b>WEALTH BRIDGE</b><small>INVEST · GROW · TOGETHER</small></span></a>
+      <h2 id="modalTitle">Create your demo account</h2>
+      <p class="muted" id="modalSub">Explore the prototype with sample data. Do not use a real password or PIN.</p>
+      <form id="authForm">
+        <label>Phone number<input id="phone" type="tel" placeholder="e.g. 08012345678" autocomplete="tel" required></label>
+        <label>Password<input id="password" type="password" placeholder="At least 8 characters" minlength="8" required></label>
+        <div id="registerFields">
+          <label>Confirm password<input id="confirmPassword" type="password" minlength="8" placeholder="Re-enter password"></label>
+          <label>Six-digit demo PIN<input id="pin" type="password" inputmode="numeric" pattern="[0-9]{6}" maxlength="6" placeholder="000000"></label>
+          <label>Referral code (optional)<input id="referral" type="text" placeholder="e.g. WB12345"></label>
+        </div>
+        <p class="form-error" id="formError" role="alert"></p>
+        <button class="btn btn-gold btn-full" type="submit" id="submitAuth">Create demo account</button>
+      </form>
+      <p class="switch-auth" id="switchAuth">Already have a demo account? <button class="text-btn" id="switchToLogin" type="button">Log in</button></p>
+      <p class="tiny-note">Demo data is stored in this browser only. This is not a secure production account system.</p>
+    </section>
+  </div>
+
+  <div class="toast" id="toast" role="status"></div>
+  <script src="app.js"></script>
+</body>
+</html>
