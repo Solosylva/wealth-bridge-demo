@@ -1,46 +1,23 @@
-# Wealth Bridge — Starter Website
+# Wealth Bridge — Supabase-connected demo
 
-This is a **front-end prototype** for the Wealth Bridge brand, styled in black and gold. It includes a homepage, browser-only demo registration/login, and a sample dashboard.
+This is a static front-end prototype for Wealth Bridge / EverHarvest Investment. Authentication is configured to use Supabase Auth once you add the project URL and publishable key in `supabase-config.js`.
 
-## Included files
-- `index.html` — public homepage and demo registration/login modal
-- `dashboard.html` — sample user dashboard
-- `styles.css` — responsive black-and-gold styling
-- `app.js` — demo-only browser registration/login
-- `dashboard.js` — demo dashboard interactions
+## Setup
+1. In Supabase, open Project Settings → API Keys (or Data API) and copy the Project URL and publishable key. Never use a secret/service_role key in browser code.
+2. Edit `supabase-config.js`, replacing both placeholders with your project values.
+3. In Supabase SQL Editor, run `SUPABASE_SETUP.sql` to create a profile row automatically for new registrations. Your existing `public.profiles` table and RLS policies must already exist.
+4. In Supabase Authentication settings, enable Email provider and configure the site URL / redirect URLs for your GitHub Pages address. Keep email confirmation enabled if possible.
+5. Upload all files in this folder to the root of your GitHub Pages repository, replacing the old versions.
+6. Test with an email account you control. If confirmation is enabled, confirm the email before logging in.
 
-## Run locally
-1. Extract the ZIP file.
-2. Open `index.html` in a modern browser.
-3. Create a demo account using a made-up phone number, password and PIN.
-4. The dashboard opens after registration.
+## Included
+- `index.html`, `dashboard.html`, `styles.css` — website pages and styling
+- `app.js`, `dashboard.js` — Supabase authentication and dashboard session checks
+- `supabase-config.js` — public connection settings placeholders
+- `SUPABASE_SETUP.sql` — profile creation trigger
 
-A local web server is recommended for the best experience, but no build step is needed. Do not use a real password or PIN.
-
-## Free hosting: GitHub Pages
-1. Create an account at https://github.com/ if needed.
-2. Create a new repository, for example `wealth-bridge-demo`.
-3. Upload `index.html`, `dashboard.html`, `styles.css`, `app.js`, and `dashboard.js` to the repository root.
-4. In the repository, open **Settings → Pages**.
-5. Under build/deployment, choose deployment from a branch, select `main` and `/ (root)`, then save.
-6. Wait for the Pages URL to appear. It will usually look like `https://YOUR-USERNAME.github.io/wealth-bridge-demo/`.
-7. Open that URL and test registration and the dashboard.
-
-GitHub Pages settings can change; consult https://docs.github.com/en/pages if the menu differs.
-
-## Important limitations — do not use for real money
-This is **not production-ready financial software**:
-- All accounts are stored in the browser's `localStorage`; this is not secure authentication.
-- The sample balances and activity are illustrative only.
-- No real bank transfer, payment verification, deposits, investment accounting, earnings, referral commissions, or withdrawals are connected.
-- There is no secure admin panel, server, database, audit trail, or identity verification.
-- Browser data can be edited or erased by the user.
-
-Before accepting funds or offering investment products, replace this demo with a secure backend and database, independent payment verification, ledger-based accounting, role-based admin access, monitoring, privacy controls, and a professional review of applicable Nigerian legal and regulatory obligations. Never promise guaranteed returns or display simulated balances as real funds.
-
-## Next production phase
-A production version would need a backend (for example Node.js), a database (for example PostgreSQL), secure password hashing, server-side sessions, verified bank-transfer reconciliation, a transaction ledger, and audited admin approval workflows. Keep the demo clearly labelled until that work is complete.
-
-
-## Proposed funding plans (demo only)
-The homepage includes eight illustrative EverHarvest Investment plan cards. All amounts and referral bonuses are unverified proposed figures for visual demonstration only. They are not a live investment offer and the site does not accept money or process returns, commissions, or withdrawals. Before any real offering, obtain appropriate legal and regulatory advice and assess financial feasibility.
+## Limitations and safety
+- This is an early demo, not production financial software. It does not accept deposits, calculate or pay returns, issue referral commissions, or process withdrawals. Dashboard figures and plan cards remain illustrative only.
+- The referral field is captured as registration metadata but referral attribution/commission logic is not implemented. Referral bonuses should not be enabled until financially sustainable and legally reviewed.
+- Do not collect or store PINs, payment credentials, or sensitive identity documents in this demo.
+- Before any real financial offering, get professional Nigerian legal/regulatory advice and verify the business can meet all obligations.

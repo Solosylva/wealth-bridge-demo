@@ -74,24 +74,27 @@
       <button class="close" id="closeModal" aria-label="Close">×</button>
       <a class="brand modal-brand" href="#"><span class="brand-mark">WB</span><span><b>WEALTH BRIDGE</b><small>INVEST · GROW · TOGETHER</small></span></a>
       <h2 id="modalTitle">Create your demo account</h2>
-      <p class="muted" id="modalSub">Explore the prototype with sample data. Do not use a real password or PIN.</p>
+      <p class="muted" id="modalSub">Create an account with your email. This website is still a demonstration; no financial transactions are available.</p>
       <form id="authForm">
-        <label>Phone number<input id="phone" type="tel" placeholder="e.g. 08012345678" autocomplete="tel" required></label>
+        <div id="fullNameField"><label>Full name<input id="fullName" type="text" placeholder="Your full name" autocomplete="name"></label></div>
+        <label>Email address<input id="email" type="email" placeholder="you@example.com" autocomplete="email" required></label>
         <label>Password<input id="password" type="password" placeholder="At least 8 characters" minlength="8" required></label>
         <div id="registerFields">
           <label>Confirm password<input id="confirmPassword" type="password" minlength="8" placeholder="Re-enter password"></label>
-          <label>Six-digit demo PIN<input id="pin" type="password" inputmode="numeric" pattern="[0-9]{6}" maxlength="6" placeholder="000000"></label>
+          
           <label>Referral code (optional)<input id="referral" type="text" placeholder="e.g. WB12345"></label>
         </div>
         <p class="form-error" id="formError" role="alert"></p>
         <button class="btn btn-gold btn-full" type="submit" id="submitAuth">Create demo account</button>
       </form>
       <p class="switch-auth" id="switchAuth">Already have a demo account? <button class="text-btn" id="switchToLogin" type="button">Log in</button></p>
-      <p class="tiny-note">Demo data is stored in this browser only. This is not a secure production account system.</p>
+      <p class="tiny-note">Authentication is handled by Supabase when configured. The plans and balances remain demonstration-only; no real financial transactions are available.</p>
     </section>
   </div>
 
   <div class="toast" id="toast" role="status"></div>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="supabase-config.js"></script>
   <script src="app.js"></script>
 </body>
 </html>
